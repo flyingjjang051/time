@@ -23,15 +23,75 @@
       <div class="txt" id="mins"><span class="num"></span><span>MIN</span></div>
       <div class="txt" id="seconds"><span class="num"></span><span>SEC</span></div>
     </div>
+    <div class="dateBox">
+      <div id="date"></div>
+    </div>
     <div class="timeBox">
       <div id="time"></div>
     </div>
     <script>
       function showTime() {
         const now = new Date();
+
+        const year = now.getFullYear(); // 4자리 연도수
+        const month = now.getMonth(); // 월 (0~11)
+        const date = now.getDate(); // 일
+        const day = now.getDay(); // 요일
+        let tempDay = "";
+        let tempMonth = "";
+        switch (day) {
+          case 0:
+            tempDay = "SUN";
+            break;
+          case 1:
+            tempDay = "MON";
+            break;
+          case 2:
+            tempDay = "TUE";
+            break;
+          case 3:
+            tempDay = "WED";
+            break;
+          case 4:
+            tempDay = "THU";
+            break;
+          case 5:
+            tempDay = "FRI";
+            break;
+          case 6:
+            tempDay = "SAT";
+            break;
+        }
+        switch (month) {
+          case 0:
+            tempMonth = "JAN";
+            break;
+          case 1:
+            tempMonth = "FEB";
+            break;
+          case 2:
+            tempMonth = "MAR";
+            break;
+          case 3:
+            tempMonth = "APR";
+            break;
+          case 4:
+            tempMonth = "MAY";
+            break;
+          case 5:
+            tempMonth = "JUN";
+            break;
+          case 6:
+            tempMonth = "JUL";
+            break;
+        }
+        const dateDom = document.querySelector("#date");
+        dateDom.textContent = `${year}  ${tempMonth} / ${date} ${tempDay}`;
+
         const hours = now.getHours();
         const mins = now.getMinutes();
         const sec = now.getSeconds();
+
         const time = document.querySelector("#time");
         time.textContent = `${hours < 10 ? "0" + hours : hours}:${mins < 10 ? "0" + mins : mins}:${sec < 10 ? "0" + sec : sec}`;
       }
@@ -72,7 +132,7 @@
         secondsDom.textContent = seconds < 10 ? "0" + seconds : seconds;
       }
       countDown("2022/9/22");
-      setInterval(countDown, 1000, "2022/9/22");
+      setInterval(countDown, 1000, "2022,9,22");
     </script>
   </body>
 </html>

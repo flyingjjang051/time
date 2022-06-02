@@ -44,6 +44,15 @@ a {
   font-weight: 700;
   @include longShadow(#111, 600);
 }
+.dateBox {
+  display: flex;
+  justify-content: center;
+  font-size: 48px;
+  color: #fff;
+  font-weight: 100;
+  margin-bottom: 60px;
+}
+
 .dayBox {
   margin: 100px auto;
   color: #fff;
